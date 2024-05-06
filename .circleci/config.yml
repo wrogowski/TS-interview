@@ -1,6 +1,6 @@
 version: 2.1
 orbs:
-  node: circleci/node@5
+  cypress: cypress-io/cypress@3
 jobs:
   test-node:
     # Install node dependencies and run tests
@@ -11,7 +11,7 @@ jobs:
           pkg-manager: npm
       - run:
           name: Run tests
-          command: npx cypress run
+          command: "npm run cy:headless"
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:

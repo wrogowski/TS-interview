@@ -1,30 +1,9 @@
 version: 2.1
 orbs:
   cypress: cypress-io/cypress@3
-jobs:
-  test-node:
-    # Install node dependencies and run tests
-    executor: node/default
-    steps:
-      - checkout
-      - node/install-packages:
-          pkg-manager: npm
-      - run:
-          name: Run tests
-          command: "npm run cy:headless"
-  deploy:
-    # This is an example deploy job, not actually used by the workflow
-    docker:
-      - image: cimg/base:stable
-    steps:
-      # Replace this with steps to deploy to users
-      - run:
-          name: deploy
-          command: '#e.g. ./deploy.sh'
 workflows:
-  build-and-test:
+  build:
     jobs:
-      - test-node
-    # - deploy:
-    #     requires:
-    #       - test-node
+      - cypress/run # "run" job comes from "cypress" orb
+          start-command: 'npm run start'
+          cypress-command: 'npx cypress run --browser chrome'

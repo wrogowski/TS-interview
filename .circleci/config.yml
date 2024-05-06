@@ -11,7 +11,7 @@ jobs:
           pkg-manager: npm
       - run:
           name: Run tests
-          command: npm cypress run
+          command: npx cypress run
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:

@@ -11,4 +11,4 @@ export const createRegularUser = () => cy.request(
     ConfirmPassword: 'Test123',
     AuthenticationToken: 'AuthByAPIdoesNotWork:('
   }
-)
+);

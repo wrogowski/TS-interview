@@ -5,5 +5,4 @@ workflows:
   build:
     jobs:
       - cypress/run # "run" job comes from "cypress" orb
-          start-command: 'npm run start'
-          cypress-command: 'npx cypress run --browser chrome'
+         
